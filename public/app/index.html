@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" type="image/png" href="/wp-image-corner/ficon.png"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Love2Chat - Chat</title>
+	</head>
+	<body>
+		<div style='border: 1px'>
+			<div id=chatinterface></div>
+				<form id=cForm action=''>
+				<input type=text placeholder='Enter chat' id='chat'></input><input type=submit></input>
+			</form>
+			<script>
+				let form = document.getElementById("cForm");
+				
+				form.addEventListener("submit", (e) => {
+				  e.preventDefault();
+				
+				  let chat = document.getElementById("chat").value;
+				
+				  console.info(chat)
+				});
+
+				fetch('/api/chat', {method: "POST", body: JSON.stringify({'content': username})})
+				  .then(response => {
+				    console.log(response.headers.get('Content-Type'));
+				    console.log(response.headers.get('Date'));
+				
+				    console.log(response.status);
+				    console.log(response.statusText);
+				    console.log(response.type);
+				    console.log(response.url) // please dont break anything
+					})
+			</script>
+		</div>
+	</body>
+</html>
