@@ -11,7 +11,7 @@ const app = express();
 // Serve static webpages.
 app.use(express.static(join(cwd(), "public")));
 
-// Listen on HTTP port 8080.
+// Listen on HTTP port 80.
 const server = createServer(app);
 server.on("listening", () => {
   let address = server.address();
@@ -22,4 +22,4 @@ server.on("listening", () => {
 app.post('/api/chat', (res, req) => {
 	log(req)
 })
-const listener = server.listen(8080);
+const listener = server.listen(80);
