@@ -22,7 +22,7 @@
 				  console.info(chat)
 				});
 
-				fetch('/api/chat', {method: "POST", body: JSON.stringify({'content': username})})
+				fetch('/api/chat', {method: "POST", body: JSON.stringify({'content': chat, 'name': document.cookie.replace('username=', '')})})
 				  .then(response => {
 				    console.log(response.headers.get('Content-Type'));
 				    console.log(response.headers.get('Date'));
